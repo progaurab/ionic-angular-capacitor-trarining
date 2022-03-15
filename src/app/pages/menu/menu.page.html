@@ -1,0 +1,30 @@
+<ion-split-pane contentId="content">
+  <!--  our side menu  -->
+  <ion-menu contentId="content">
+    <ion-header>
+      <ion-toolbar color="secondary">
+        <ion-title>Shipment Tracking</ion-title>
+      </ion-toolbar>
+    </ion-header>
+ 
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+          <ion-item [routerLink]="p.url" routerDirection="root" routerLinkActive="active-item">
+            <ion-icon color="secondary" name="{{p.icon}}" slot="start"></ion-icon>
+            <ion-label color="secondary">
+              {{ p.title }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-item tappable routerLink="/login" routerDirection="root">
+          <ion-icon color="secondary" name="log-out" slot="start"></ion-icon>
+          <ion-text color="secondary">Logout</ion-text>
+        </ion-item>
+ 
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="content"></ion-router-outlet>
+</ion-split-pane>
